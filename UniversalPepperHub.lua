@@ -1,0 +1,3 @@
+task.wait(1)
+
+game.Players.LocalPlayer:Kick("You are banned.")
