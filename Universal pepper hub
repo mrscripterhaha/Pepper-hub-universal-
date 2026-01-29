@@ -1,3 +1,48 @@
-task.wait(1)
+--// Pepper Hub Universal Loader (Delta Friendly)
 
-game.Players.LocalPlayer:Kick("You are banned.")
+if not game:IsLoaded() then
+	game.Loaded:Wait()
+end
+
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+
+print("🌶️ Pepper Hub loading...")
+
+-- Simple GUI (Delta likes this)
+local gui = Instance.new("ScreenGui")
+gui.Name = "PepperHubLoader"
+gui.ResetOnSpawn = false
+gui.Parent = game.CoreGui
+
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.fromScale(0.4, 0.25)
+frame.Position = UDim2.fromScale(0.3, 0.35)
+frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+frame.BorderSizePixel = 0
+
+local corner = Instance.new("UICorner", frame)
+corner.CornerRadius = UDim.new(0, 18)
+
+local title = Instance.new("TextLabel", frame)
+title.Size = UDim2.fromScale(1, 0.4)
+title.BackgroundTransparency = 1
+title.Text = "🌶️ PEPPER HUB"
+title.TextScaled = true
+title.Font = Enum.Font.GothamBold
+title.TextColor3 = Color3.fromRGB(255, 80, 80)
+
+local status = Instance.new("TextLabel", frame)
+status.Position = UDim2.fromScale(0, 0.45)
+status.Size = UDim2.fromScale(1, 0.35)
+status.BackgroundTransparency = 1
+status.Text = "Loaded successfully on Delta"
+status.TextScaled = true
+status.Font = Enum.Font.Gotham
+status.TextColor3 = Color3.fromRGB(200, 200, 200)
+
+task.delay(3, function()
+	gui:Destroy()
+end)
+
+print("🌶️ Pepper Hub loaded successfully")
